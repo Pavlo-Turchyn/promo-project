@@ -36,8 +36,13 @@ export class AuthService {
   }
 
   // Sign in with Google
-  googleAuth() {
+  googleAuth(): Promise<void> {
     return this.authLogin(new auth.GoogleAuthProvider());
+  }
+
+  // Sign in with Facebook
+  facebookAuth(): Promise<void> {
+    return this.authLogin(new auth.FacebookAuthProvider());
   }
 
   authLogin(provider) {
