@@ -32,11 +32,28 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  signInGoogle(): void {
-    this.authService.googleAuth();
+  signIn(type: string): void {
+    switch (type) {
+      case 'google': {
+        this.authService.googleAuth();
+        break;
+      }
+      case 'facebook': {
+        this.authService.facebookAuth();
+        break;
+      }
+      default:
+        break;
+    }
+    this.navigateToHomeIfLoggedIn();
   }
 
-  signInFacebook(): void {
-    this.authService.facebookAuth();
+  navigateToHomeIfLoggedIn(): void {
+    this.authService.userIsLoggedIn.subscribe(
+      (): void => {
+        this.router.navigateByUrl('home');
+      },
+      (error): void => console.log(error.message)
+    );
   }
 }
