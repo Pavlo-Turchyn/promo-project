@@ -1,0 +1,13 @@
+/.idea/
+/.awcache/
+/config/
+/node_modules/
+/package-lock.json
+tslint.js
+karma.conf.js
+/e2e/
+.eslintrc.js
+/.appRoutingModule/
+
+
+
