@@ -5,3 +5,7 @@ export interface User {
   photoURL: string;
   emailVerified: boolean;
 }
+export interface CatImg {
+  id: string;
+  url: string;
+}
