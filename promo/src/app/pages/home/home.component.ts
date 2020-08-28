@@ -19,6 +19,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   amountOfCats = 5;
   catsImages: CatImg[];
   form: FormGroup;
+  catsTitle = 'cats';
   constructor(
     private authService: AuthService,
     private validationService: ValidationService,

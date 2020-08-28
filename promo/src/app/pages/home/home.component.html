@@ -10,11 +10,11 @@
     </button>
   </div>
   <div class="cats-names-container mt-20" *ngIf="catsImages && catsImages.length">
-    <h1 appBackgroundColor class="ml-15">Cats</h1>
+    <h1 appBackgroundColor class="ml-15">{{catsTitle | uppercase}}</h1>
     <mat-list role="list">
       <mat-list-item
         role="listitem"
-        *ngFor="let catImage of catsImages; index as i"
+        *ngFor="let catImage of catsImages | sort; index as i"
       >
         <div class="list-item-container" (click)="onCatSelect(catImage.url, i)">
           <app-list-item
