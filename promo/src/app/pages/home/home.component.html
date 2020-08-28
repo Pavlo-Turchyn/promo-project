@@ -9,8 +9,11 @@
       Log Out
     </button>
   </div>
-  <div class="cats-names-container mt-20" *ngIf="catsImages && catsImages.length">
-    <h1 appBackgroundColor class="ml-15">{{catsTitle | uppercase}}</h1>
+  <div
+    class="cats-names-container mt-20"
+    *ngIf="catsImages && catsImages.length"
+  >
+    <h1 appBackgroundColor class="ml-15">{{ catsTitle | uppercase }}</h1>
     <mat-list role="list">
       <mat-list-item
         role="listitem"
@@ -40,10 +43,15 @@
       </mat-form-field>
 
       <div class="formGroup mt-20">
-        <button type="submit" mat-raised-button color="accent" class="mt-20">
+        <button
+          type="submit"
+          mat-raised-button
+          color="accent"
+          class="mt-20"
+          [disabled]="!form.valid"
+        >
           Submit
         </button>
-        <!--        [disabled]="!form.valid"-->
       </div>
     </form>
   </div>
