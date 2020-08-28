@@ -38,7 +38,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.unsubscribe.complete();
   }
 
-  redirectToItem(index: number): void {
+  handleRedirectEvent(index: number): void {
     this.router.navigateByUrl(`item/${index}`);
   }
 
@@ -71,7 +71,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   onCatSelect(data: string, index: number): void {
     this.dataSharingService.emitCatDataChange(data);
-    this.redirectToItem(index);
+    // this.redirectToItem(index);
   }
 
   filterCatImgFields(data): CatImg[] {

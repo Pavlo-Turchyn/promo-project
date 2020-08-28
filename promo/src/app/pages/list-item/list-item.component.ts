@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CatImg } from '../../core/models/models';
 
 @Component({
@@ -8,7 +8,13 @@ import { CatImg } from '../../core/models/models';
 })
 export class ListItemComponent implements OnInit {
   @Input() cat: CatImg;
+  @Input() index: number;
+  @Output() redirectEvent: EventEmitter<number> = new EventEmitter<number>();
   constructor() {}
 
   ngOnInit(): void {}
+
+  emitRedirectEvent(index: number): void {
+    this.redirectEvent.emit(index);
+  }
 }

@@ -20,6 +20,8 @@
           <app-list-item
             *ngIf="catImage && catImage.id"
             [cat]="catImage"
+            [index]="i"
+            (redirectEvent)="handleRedirectEvent($event)"
           ></app-list-item>
         </div>
       </mat-list-item>
