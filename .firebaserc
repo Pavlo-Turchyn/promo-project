@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "promo": {
+      "hosting": {
+        "promo": [
+          "promo"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "promo-1ef16"
+  }
+}
