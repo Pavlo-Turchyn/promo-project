@@ -17,10 +17,6 @@ pipelines:
           artifacts:
             - node_modules/** # Save modules for next steps
       - step:
-          name: Lint
-          script:
-            - npm run lint
-      - step:
           name: Build
           script:
             - npm run build:production
