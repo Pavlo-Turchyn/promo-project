@@ -1,0 +1,58 @@
+<section>
+  <div class="logout-container">
+    <button
+      mat-raised-button
+      color="warn"
+      class="mt-20 mr-20"
+      (click)="signOut()"
+    >
+      Log Out
+    </button>
+  </div>
+  <div
+    class="cats-names-container mt-20"
+    *ngIf="catsImages && catsImages.length"
+  >
+    <h1 appBackgroundColor class="ml-15">{{ catsTitle | uppercase }}</h1>
+    <mat-list role="list">
+      <mat-list-item
+        role="listitem"
+        *ngFor="let catImage of catsImages | sort; index as i"
+      >
+        <div class="list-item-container" (click)="onCatSelect(catImage.url, i)">
+          <app-list-item
+            *ngIf="catImage && catImage.id"
+            [cat]="catImage"
+            [index]="i"
+            (redirectEvent)="handleRedirectEvent($event)"
+          ></app-list-item>
+        </div>
+      </mat-list-item>
+    </mat-list>
+  </div>
+  <div class="email-container mt-40">
+    <h4>Please enter your email for more details</h4>
+    <form class="email-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+      <mat-form-field class="example-full-width w-100">
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+          formControlName="email"
+          placeholder="Ex. cat@example.com"
+        />
+      </mat-form-field>
+
+      <div class="formGroup mt-20">
+        <button
+          type="submit"
+          mat-raised-button
+          color="accent"
+          class="mt-20"
+          [disabled]="!form.valid"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</section>
