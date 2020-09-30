@@ -17,9 +17,13 @@ pipelines:
           artifacts:
             - node_modules/** # Save modules for next steps
       - step:
+          name: Test
+          script:
+            - npm run test:no-watch
+      - step:
           name: Build
           script:
-            - npm run build:production
+            - npm run build:prod
           artifacts:
             - dist/** # Save build for next steps
        
