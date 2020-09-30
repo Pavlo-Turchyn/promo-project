@@ -38,7 +38,8 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.unsubscribe.complete();
   }
 
-  handleRedirectEvent(index: number): void {
+  handleRedirectEvent(index: number, imgUrl: string): void {
+    this.dataSharingService.emitCatDataChange(imgUrl);
     this.router.navigateByUrl(`item/${index}`);
   }
 
@@ -59,6 +60,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       )
       .subscribe(
         (data: CatImg[]): void => {
+          console.log(data);
           this.onGetCatsSuccess(data);
         },
         (error) => console.log(error)

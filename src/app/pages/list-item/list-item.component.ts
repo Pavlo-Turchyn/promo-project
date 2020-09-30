@@ -12,7 +12,9 @@ export class ListItemComponent implements OnInit {
   @Output() redirectEvent: EventEmitter<number> = new EventEmitter<number>();
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.cat);
+  }
 
   emitRedirectEvent(index: number): void {
     this.redirectEvent.emit(index);
