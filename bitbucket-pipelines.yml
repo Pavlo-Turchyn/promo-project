@@ -13,18 +13,9 @@ pipelines:
                caches:
                  - node
                script:
-                 - apt-get update
-                 - apt-get install -y protobuf-compiler
-                 - >
-                   wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - && \
-                     sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list' && \
-                     apt-get update && \
-                     apt-get install -y google-chrome-stable xvfb procps
-                 - git submodule update --init --recursive
-                 - echo $ENVIRONMENT_DEV_TS > src/environments/environment.ts
-                 - npm install --unsafe-perm
-                 - npm install ChromeHeadlessCI
+                 - apt update && apt install -yq gconf-service libasound2 libatk1.0-0 libc6 libcairo2 libcups2 libdbus-1-3 libexpat1 libfontconfig1 libgcc1 libgconf-2-4 libgdk-pixbuf2.0-0 libglib2.0-0 libgtk-3-0 libnspr4 libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils wget
                  - npm run test:ci
+                 - npm run e2e:ci
       - step:
           name: Installation
           caches:
@@ -36,7 +27,7 @@ pipelines:
       - step:
           name: Test
           script:
-            - npm run test:no-watch
+            - npm run test:ci
       - step:
           name: Build
           script:
