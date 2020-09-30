@@ -10,7 +10,9 @@
     "test:no-watch": "ng test --watch=false",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "cypress": "concurrently \"ng serve\" \"cypress open\""
+    "cypress": "concurrently \"ng serve\" \"cypress open\"",
+    "test:ci": "ng test --no-watch --no-progress --browsers ChromeHeadlessCI",
+    "e2e:ci": "ng e2e --protractor-config=e2e/protractor-ci.conf.js"
   },
   "private": true,
   "dependencies": {
