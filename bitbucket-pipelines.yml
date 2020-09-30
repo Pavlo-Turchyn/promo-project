@@ -23,8 +23,8 @@ pipelines:
                  - git submodule update --init --recursive
                  - echo $ENVIRONMENT_DEV_TS > src/environments/environment.ts
                  - npm install --unsafe-perm
+                 - npm install ChromeHeadlessCI
                  - npm run test:ci
-                 - npm run e2e:ci
       - step:
           name: Installation
           caches:
