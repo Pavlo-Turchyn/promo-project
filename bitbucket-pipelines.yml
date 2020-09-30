@@ -16,6 +16,10 @@ pipelines:
             - npm install
           artifacts:
             - node_modules/** # Save modules for next steps
+       - step:
+          name: Test
+          script:
+            - npm run test:no-watch
       - step:
           name: Build
           script:
